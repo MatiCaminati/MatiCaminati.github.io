@@ -3,10 +3,8 @@
 ## <center> Facultad de Ingeniería </center>
 
 
-<img src="\Imagenes\caratula.jpg"
-     alt="UNRC"
-     style="float: center; margin-center: 100px;" />
-
+<center><img src="\Imagenes\caratula.jpg"
+     alt="UNRC"/></center>
 
 ## <center> Aplicaciones TCP/IP (Cod. 0052) </center>
 
@@ -205,18 +203,19 @@ En resumen, este código:
 
 Luego se decidió implementar una forma más visible de lo que realiza el sistema, por lo que, con el uso de una Raspberry Pi se creó una maqueta.
 
-<img src="\Imagenes\maq1.jpg" width="200" height="100">
+<img src="\Imagenes\maq1.jpg" width="100" height="150"> 
 
-<img src="\Imagenes\maq4.jpg" width="200" height="100">
+<img src="\Imagenes\maq4.jpg" width="100" height="150">
 
 En la Raspberry, se colocaron 6 LEDs y 2 sensores infrarrojos. La idea fue, mediante un script en python, simular el comportamiento de 4 sensores, que, según su estado generado de forma aleatoria, se prenden o apagan. Para los 2 sensores extras, se usaron los sensores infrarrojos que, según tengan o no objetos enfrente, encenderán los led correspondientes.
 Este código también conecta con el servidor, pero esta vez envía los datos simulados de los 4 sensores y lo que generan los 2 infrarrojos (presencia o no de objetos).
 
-![Raspberry Pi](\Imagenes\maq3.jpg)
+<img src="\Imagenes\maq3.jpg" width="100" height="150">
 
-![Sensores y LEDs indicadores de presencia](\Imagenes\maq2.jpg)
+<img src="\Imagenes\maq2.jpg" width="100" height="100">
 
-![Integración de Raspberry en Maqueta](\Imagenes\maq5.jpg)
+<img src="\Imagenes\maq5.jpg" width="100" height="150">
+
 
 Con los dispositivos creados y ya enviada su información con el código explicado anteriormente, se maneja la información mediante el uso de Paneles, en la página de ThingsBoard. Aquí se muestra la información de los sensores, mediante mapas y gráficos, creando diferentes instancias para usuarios y agentes. 
 
@@ -226,13 +225,13 @@ Una vez que está todo diseñado, se crean links de acceso para los usuarios com
 
 Una vez que se verifica que todo funciona, se usa Android Studio para la visualización de los paneles de Thingsboard mediante una aplicación. 
 
-![Aplicación](\Imagenes\impl_app.jpg) 
+<img src="\Imagenes\impl_app.jpg" width="100" height="100">
 
-![Apertura App](\Imagenes\impl_app_2.jpg) 
+<img src="\Imagenes\impl_app_2.jpg" width="100" height="150">
 
 Esta consta de un menú de inicio en el que se selecciona el tipo de usuario: agente o conductor. Según sea el usuario que se elija, se mostrarán en pantalla los paneles de Thingsboard correspondientes. [[1]](#1)
 
-![Menu App](\Imagenes\impl_app_inicio.jpg)
+<img src="\Imagenes\impl_app_inicio.jpg" width="100" height="150">
 
 ##  8. Plan de ensayos
 
