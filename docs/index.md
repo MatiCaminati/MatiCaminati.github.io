@@ -2,9 +2,11 @@
 
 ## <center> Facultad de Ingeniería </center>
 
-<p align="center">
 
-![UNRC, Facultad de Ingeniería, Departamento de Telecomunicaciones](\Imagenes\caratula.jpg) </p>
+<img src="\Imagenes\caratula.jpg"
+     alt="UNRC"
+     style="float: center; margin-center: 100px;" />
+
 
 ## <center> Aplicaciones TCP/IP (Cod. 0052) </center>
 
@@ -203,9 +205,9 @@ En resumen, este código:
 
 Luego se decidió implementar una forma más visible de lo que realiza el sistema, por lo que, con el uso de una Raspberry Pi se creó una maqueta.
 
-![Maqueta representativa del sistema](\Imagenes\maq1.jpg){width='150px' height='150px'}
+<img src="\Imagenes\maq1.jpg" width="200" height="100">
 
-![Maqueta representativa del sistema_2](\Imagenes\maq4.jpg){width='150px' height='150px'}
+<img src="\Imagenes\maq4.jpg" width="200" height="100">
 
 En la Raspberry, se colocaron 6 LEDs y 2 sensores infrarrojos. La idea fue, mediante un script en python, simular el comportamiento de 4 sensores, que, según su estado generado de forma aleatoria, se prenden o apagan. Para los 2 sensores extras, se usaron los sensores infrarrojos que, según tengan o no objetos enfrente, encenderán los led correspondientes.
 Este código también conecta con el servidor, pero esta vez envía los datos simulados de los 4 sensores y lo que generan los 2 infrarrojos (presencia o no de objetos).
