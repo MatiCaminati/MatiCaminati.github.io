@@ -2,7 +2,11 @@
 
 ## <center> Facultad de Ingeniería </center>
 
-<center> ![UNRC, Facultad de Ingeniería, Departamento de Telecomunicaciones](\Imagenes\caratula.jpg) </center>
+<center> 
+
+![UNRC, Facultad de Ingeniería, Departamento de Telecomunicaciones](\Imagenes\caratula.jpg) 
+
+</center>
 
 ## <center> Aplicaciones TCP/IP (Cod. 0052) </center>
 
