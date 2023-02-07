@@ -79,21 +79,79 @@ ___
 
 ####   ***5.1.1. Características Generales*** 
 
-| Código       |                                                              0011-IA                                                             | Nombre | Interfaz de Administración |   |
-|--------------|:--------------------------------------------------------------------------------------------------------------------------------:|--------|:--------------------------:|---|
-| Descripción  | Se requiere la creación de un sistema para hacer un análisis estadístico de los contenedores de los puntos verdes de la ciudad.  |        |                            |   |
-| Prioridad    |                                                                 1                                                                | Rel.   |              -             |   |
-| Trazabilidad |                                                                 -                                                                | Ref.   |              -             |   |
+| Código | 0011-IA | Nombre | Interfaz de Administración |
+|---|:---:|---|:---:|
+| Descripción | Se requiere la creación de un sistema para hacer un análisis estadístico de los contenedores de los puntos verdes de la ciudad.  |  |  |
+| Prioridad | 1 | Rel. | - |
+| Trazabilidad | - | Ref. | - |
+
+| Código | 0022-US | Nombre | Usuarios del Sistema |
+|---|:---:|---|:---:|
+| Descripción | El producto deberá permitir que sea utilizado por 2 tipos de usuario: El “usuario común”, referente a los conductores de vehículos, que recibirán información sobre la disponibilidad de los slots de estacionamiento. Un “usuario controlador”, referente a los agentes de tránsito, que usarán la información disponible para optimizar los controles en la vía pública. El administrador, que se encargará del mantenimiento de la aplicación, y contará con acceso a Thingsboard, donde se almacenan y manejan todos los datos necesarios . |  |  |
+| Prioridad | 1 | Rel. | - |
+| Trazabilidad | - | Ref. | - |
+
+| Código | 0033-BD | Nombre | Base de Datos |
+|---|:---:|---|:---:|
+| Descripción | El sistema deberá poseer una base de datos que permita el almacenamiento de la información de los sensores ubicados en los diferentes slots de almacenamiento. |  |  |
+| Prioridad | 1 | Rel. | - |
+| Trazabilidad | - | Ref. | - |
 
 ####   ***5.1.2. Interaz de usuario***  
 
+Mediante la definición de la interfaz de usuario se provee acceso a los mismos a las herramientas con las que cuenta para poder realizar las tareas necesarias de planificación.
+
+| Código | 0011-IA | Nombre | Interfaz de Administrador |
+|---|:---:|---|:---:|
+| Descripción | La aplicación debe proveer una interfaz que permita al administrador visualizar y analizar los siguientes datos de los sensores: Disponibilidad (detectando presencia o no de un vehículo) . Cambiar el estado de los slots en el mapa según la disponibilidad. La cantidad de slots ocupados. Un estadístico de cada slot del tiempo de ocupación histórico. |  |  |
+| Prioridad | 1 | Rel. | - |
+| Trazabilidad | - | Ref. | - |
+
 ####   ***5.1.3. Persistencia de datos*** 
+
+El sistema ofrece soporte para dos tipos de datos persistentes:
+* Datos propios del sistema 
+* Datos generados por el usuario
+
+| Código | 0033-BD | Nombre | Base de datos |
+|---|:---:|---|:---:|
+| Descripción | El sistema proveerá un archivo del almacenamiento de los datos recolectados del sensor. |  |  |
+| Prioridad |  1 | Rel. | - |
+| Trazabilidad | - | Ref. | - |
+
+| Código | 0044-AC | Nombre | Archivo de Configuración |
+|---|:---:|---|:---:|
+| Descripción | El sistema proveerá archivos de configuración con la información necesaria para realizar: Configuración del sistema. Configuración de la interfaz gráfica. Configuración de los sensores. Mantenimiento del sistema. |  |  |
+| Prioridad | 1 | Rel. | - |
+| Trazabilidad | - | Ref. | - |
 
 ###   **5.2. Requerimientos Generales - Bajo Nivel** 
 
-####   ***5.2.1. Usuarios del sistema*** 
-####   ***5.2.2. Interaz de usuario***  
-####   ***5.2.3. Persistencia de datos*** 
+Esta sección describe los requerimientos del sistema relativos a las funcionalidades o requerimientos generales (alto nivel) que requieren mayor especificidad.
+
+####   ***5.2.1. Usuarios del sistema [ 0022 - US ]*** 
+
+| Código | 0022-US-UR | Nombre | Usuario Común |
+|---|:---:|:---:|:---:|
+| Descripción | Los usuarios comunes, es decir, los conductores, tendrán accesibilidad, mediante una aplicación, a un mapa en el cual podrán visibilizar la disponibilidad de los slots de estacionamiento en distintas calles de la ciudad. |  |  |
+| Prioridad | 1  | Rel. | - |
+| Trazabilidad | - | Ref. | - |
+
+####   ***5.2.2. Interaz de usuario [ 0011 - IA ]*** 
+
+| Código | 0011-IA | Nombre | Interfaz de administrador |
+|---|:---:|---|:---:|
+| Descripción | Se vizualizará  Mapa con los sensores y su disponibilidad, de la misma manera que lo descrito en [ 0022 - US ]. Se mostrarán además gráficas históricas de la cantidad de slots ocupados por calle, de modo que la información le sea útil a los agentes para los controles de tránsito. Una gráfica para cada slot con la información histórica de la disponibilidad, para un análisis del tráfico. |  |  |
+| Prioridad | 1  | Rel. | - |
+| Trazabilidad | - | Ref. | - |
+
+####   ***5.2.3. Persistencia de datos [ 0033-BD ] *** 
+
+| Código | 0033-BD | Nombre | Base de datos |
+|---|:---:|---|:---:|
+| Descripción | Los datos acumulados se mantienen por el periodo de un año, pasado este se eliminan del sistema. |  |  |
+| Prioridad | 1 | Rel. | - |
+| Trazabilidad | - | Ref. | - |
 
 ___
 
@@ -205,18 +263,18 @@ En resumen, este código:
 
 Luego se decidió implementar una forma más visible de lo que realiza el sistema, por lo que, con el uso de una Raspberry Pi se creó una maqueta.
 
-<img src="\Imagenes\maq1.jpg" width="100" height="150"> 
+<img src="\Imagenes\maq1.jpg" width="200" height="250"> 
 
-<img src="\Imagenes\maq4.jpg" width="100" height="150">
+<img src="\Imagenes\maq4.jpg" width="200" height="200">
 
 En la Raspberry, se colocaron 6 LEDs y 2 sensores infrarrojos. La idea fue, mediante un script en python, simular el comportamiento de 4 sensores, que, según su estado generado de forma aleatoria, se prenden o apagan. Para los 2 sensores extras, se usaron los sensores infrarrojos que, según tengan o no objetos enfrente, encenderán los led correspondientes.
 Este código también conecta con el servidor, pero esta vez envía los datos simulados de los 4 sensores y lo que generan los 2 infrarrojos (presencia o no de objetos).
 
-<img src="\Imagenes\maq3.jpg" width="100" height="150">
+<img src="\Imagenes\maq3.jpg" width="200" height="250">
 
-<img src="\Imagenes\maq2.jpg" width="100" height="100">
+<img src="\Imagenes\maq2.jpg" width="200" height="200">
 
-<img src="\Imagenes\maq5.jpg" width="100" height="150">
+<img src="\Imagenes\maq5.jpg" width="200" height="250">
 
 
 Con los dispositivos creados y ya enviada su información con el código explicado anteriormente, se maneja la información mediante el uso de Paneles, en la página de ThingsBoard. Aquí se muestra la información de los sensores, mediante mapas y gráficos, creando diferentes instancias para usuarios y agentes. 
@@ -227,13 +285,13 @@ Una vez que está todo diseñado, se crean links de acceso para los usuarios com
 
 Una vez que se verifica que todo funciona, se usa Android Studio para la visualización de los paneles de Thingsboard mediante una aplicación. 
 
-<img src="\Imagenes\impl_app.jpg" width="100" height="100">
+<img src="\Imagenes\impl_app.jpg" width="175" height="200">
 
-<img src="\Imagenes\impl_app_2.jpg" width="100" height="150">
+<img src="\Imagenes\impl_app_2.jpg" width="150" height="250">
 
 Esta consta de un menú de inicio en el que se selecciona el tipo de usuario: agente o conductor. Según sea el usuario que se elija, se mostrarán en pantalla los paneles de Thingsboard correspondientes. [[1]](#1)
 
-<img src="\Imagenes\impl_app_inicio.jpg" width="100" height="150">
+<img src="\Imagenes\impl_app_inicio.jpg" width="150" height="250">
 
 ##  8. Plan de ensayos
 
