@@ -1,4 +1,4 @@
-site_name: Aplicaciones TCP/IP
+site_name: Parking 4.0
 nav:
     - Introducción: index.md
     - Git uso y comandos basicos: Git.md
