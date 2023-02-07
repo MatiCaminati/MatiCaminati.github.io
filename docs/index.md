@@ -1,15 +1,11 @@
-# <center>  **Universidad Nacional de Río Cuarto** </center>
+# **<center>  Universidad Nacional de Río Cuarto </center>**
 
 ## <center> Facultad de Ingeniería 
-
-
-![UNRC, Facultad de Ingeniería, Departamento de Telecomunicaciones](\Imagenes\caratula.jpg) 
-
-</center>
+![UNRC, Facultad de Ingeniería, Departamento de Telecomunicaciones](\Imagenes\caratula.jpg) </center>
 
 ## <center> Aplicaciones TCP/IP (Cod. 0052) </center>
 
-## <center> **‘PARKING 4.0 RIO IV’** </center>
+## **<center> ‘PARKING 4.0 RIO IV’ </center>**
 
 <u> Docentes: </u> 
 
