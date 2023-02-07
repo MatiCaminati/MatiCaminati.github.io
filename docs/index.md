@@ -3,8 +3,10 @@
 ## <center> Facultad de Ingeniería </center>
 
 
-<center><img src="\Imagenes\caratula.jpg"
-     alt="UNRC"/></center>
+<img src="\Imagenes\caratula.jpg"
+     alt="UNRC"
+     style="float: center; margin-center: 100px;" />
+
 
 ## <center> Aplicaciones TCP/IP (Cod. 0052) </center>
 
@@ -210,11 +212,11 @@ Luego se decidió implementar una forma más visible de lo que realiza el sistem
 En la Raspberry, se colocaron 6 LEDs y 2 sensores infrarrojos. La idea fue, mediante un script en python, simular el comportamiento de 4 sensores, que, según su estado generado de forma aleatoria, se prenden o apagan. Para los 2 sensores extras, se usaron los sensores infrarrojos que, según tengan o no objetos enfrente, encenderán los led correspondientes.
 Este código también conecta con el servidor, pero esta vez envía los datos simulados de los 4 sensores y lo que generan los 2 infrarrojos (presencia o no de objetos).
 
-<img src="\Imagenes\maq3.jpg" width="200" height="250">
+<img src="\Imagenes\maq3.jpg" width="100" height="150">
 
-<img src="\Imagenes\maq2.jpg" width="200" height="200">
+<img src="\Imagenes\maq2.jpg" width="100" height="100">
 
-<img src="\Imagenes\maq5.jpg" width="200" height="250">
+<img src="\Imagenes\maq5.jpg" width="100" height="150">
 
 
 Con los dispositivos creados y ya enviada su información con el código explicado anteriormente, se maneja la información mediante el uso de Paneles, en la página de ThingsBoard. Aquí se muestra la información de los sensores, mediante mapas y gráficos, creando diferentes instancias para usuarios y agentes. 
