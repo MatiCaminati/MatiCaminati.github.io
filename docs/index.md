@@ -203,9 +203,9 @@ En resumen, este código:
 
 Luego se decidió implementar una forma más visible de lo que realiza el sistema, por lo que, con el uso de una Raspberry Pi se creó una maqueta.
 
-![Maqueta representativa del sistema|100](\Imagenes\maq1.jpg)
+![Maqueta representativa del sistema](\Imagenes\maq1.jpg){width='150px' height='150px'}
 
-![Maqueta representativa del sistema_2|100](\Imagenes\maq4.jpg)
+![Maqueta representativa del sistema_2](\Imagenes\maq4.jpg){width='150px' height='150px'}
 
 En la Raspberry, se colocaron 6 LEDs y 2 sensores infrarrojos. La idea fue, mediante un script en python, simular el comportamiento de 4 sensores, que, según su estado generado de forma aleatoria, se prenden o apagan. Para los 2 sensores extras, se usaron los sensores infrarrojos que, según tengan o no objetos enfrente, encenderán los led correspondientes.
 Este código también conecta con el servidor, pero esta vez envía los datos simulados de los 4 sensores y lo que generan los 2 infrarrojos (presencia o no de objetos).
