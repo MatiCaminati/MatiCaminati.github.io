@@ -123,8 +123,8 @@ El sistema ofrece soporte para datos propios del sistema.
 
 | Código | CFG_SIS_0001 | Nombre | Configuración sistema |
 |---|:---:|---|:---:|
-| Descripción | El sistema proveerá archivos de configuración a los usuarios administradores con la información necesaria para realizar: <li>Configuración del sistema.</li> <li>Configuración de la interfaz gráfica.</li> <li>Configuración de los sensores.</li> <li>Mantenimiento del sistema.</li> |  |  |
-| Prioridad |  1 | Rel. | <li>INT_GRAL_0001</li><li>US_GRAL_0001</li><li>BD_GRAL_0001</li>   |
+| Descripción | El sistema proveerá archivos de configuración a los usuarios administradores con la información necesaria para realizar: configuración del sistema, configuración de la interfaz gráfica, configuración de los sensores, mantenimiento del sistema |  |  |
+| Prioridad |  1 | Rel. | INT_GRAL_0001; US_GRAL_0001; BD_GRAL_0001  |
 | Trazabilidad | - | Ref. | - |
 
 ###   **5.2. Requerimientos Generales - Bajo Nivel** 
@@ -157,7 +157,7 @@ Esta sección describe los requerimientos del sistema relativos a las funcionali
 
 | Código | BD_LL_0001 | Nombre | Base de datos |
 |---|:---:|---|:---:|
-| Descripción | Se debe contar con archivos que permitan: <li>Configuración del sistema, con un formato que permita al adminsitrador modificar de manera simple los datos.</li> <li>Configuración de la interfaz gráfica, con el formato que le permita al administrador la amyor facilidad de modificar la interfaz gráfica de las funciones.</li> <li>Configuración de los sensores, mediante un formato .xslx para almacenar los datos de sensores y poder conectarse al servidor.</li> <li>Mantenimiento del sistema.</li> |  |  |
+| Descripción | Se debe contar con archivos que permitan: configuración del sistema, con un formato que permita al adminsitrador modificar de manera simple los datos; configuración de la interfaz gráfica, con el formato que le permita al administrador la amyor facilidad de modificar la interfaz gráfica de las funciones; configuración de los sensores, mediante un formato .xslx para almacenar los datos de sensores y poder conectarse al servidor; mantenimiento del sistema. |  |  |
 | Prioridad | 1 | Rel. | CFG_SIS_0001 |
 | Trazabilidad | - | Ref. | - |
 
