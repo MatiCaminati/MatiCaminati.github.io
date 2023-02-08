@@ -30,11 +30,11 @@ ___
 
 El proyecto tiene como objetivo agilizar el tráfico de la ciudad de Río Cuarto, enfocándose en la agilidad al momento de estacionar en lugares con gran circulación. Es un problema común la búsqueda de un lugar de estacionamiento al momento de desplazarse por la ciudad, más aún en los lugares de mayor circulación, derivando en estacionamiento saturado, pagar altas tarifas, mayor impacto ambiental, estacionamiento en la calle o fuera de la calle, uso inadecuado del estacionamiento existente, etc.
 
-Con este proyecto se busca agilizar el estacionamiento a través de una aplicación en el que el usuario pueda observar en un mapa los slots disponibles para estacionamiento en tiempo real en las calles de la ciudad, y los agentes puedan observar situaciones particulares para un mejor control de tránsito. Además, la recolección de ciertos datos , permitirán más usos para el futuro. 
+En primer lugar se desarrolla una breve introudcción a la situación analizada y se plantearán los objetivos del proyecto. Luego se detallarán los requerimientos de alto y bajo nivel que el mismo debe cumplir. Seguirá la etapa de diseño del software haciendo una descripción más profunda de la funcionalidad del mismo y cómo llevarlo a cabo para posteriormente detallar como fue implementado, seguido de la etapa de ‘testing’ en la cual se analiza el correcto funcionamiento de todas las etapas del proyecto. Finalmente, en la conclusión se exponen ideas finales del producto y los potenciales que este posee en caso de un funcionamiento exitoso con el tiempo.
 
 ___
 
-##   2. Tabla de contenidos 
+##  2. Tabla de contenidos 
 - [1. Resumen](#1-resumen)
 - [2. Tabla de contenidos](#2-tabla-de-contenidos)
 - [3. Introducción](#3-introducción)
@@ -56,8 +56,9 @@ ___
     - [7.1. Implemetación real teórica](#71-implementación-real-teórica)
     - [7.2. Implemetación mediante una simulación del entorno](#72-implementación-mediante-una-simulación-del-entorno)
 - [8. Plan de ensayos](#8-plan-de-ensayos)
-- [9. Conclusión](#9-conclusión)
-- [10. Anexos](#10-anexos)
+- [9. Análisis de resultados](#9-análisis-de-resultados)
+- [10. Conclusión](#10-conclusión)
+- [11. Anexos](#11-anexos)
 
 ___
 
@@ -69,7 +70,7 @@ Al profundizar más en esta problemática, se aprecia la necesidad de un sistema
 
 Específicmente en la ciudad de Río Cuarto, ciudad en donde los actores de este informe se desenvuelven, la única solución presente es un mayor control por parte de agentes de tránsito, campañas de concientización y la propia capacidad de manejo de la gente. Muchas veces, alguno de estos factores no se ejercen de manera correcta o las personas no colaboran a que el tráfico sea un entorno amigable para los actores de la vía pública.
 
-En el siguiente informe se detalla una solución a lo planteado anteriormente la cual toma esta problemática y la soluciona con la implementación de una aplicación ‘Parking 4.0’. En primer lugar se detallan los objetivos de la presente y luego los requerimientos de alto y bajo nivel que el mismo debe cumplir. Luego se describe la etapa de diseño del software haciendo una descripción más profunda de la funcionalidad del mismo y cómo llevarlo a cabo para posteriormente detallar como fue implementado, seguido de la etapa de ‘testing’ en la cual se analiza el correcto funcionamiento de todas las etapas del proyecto. Finalmente, en la conclusión se exponen ideas finales del producto y los potenciales que este posee en caso de un funcionamiento exitoso con el tiempo.
+En el siguiente informe se detalla una solución a lo planteado anteriormente la cual toma esta problemática y la soluciona con la implementación de una aplicación ‘Parking 4.0’, que permite observar en un mapa los slots disponibles para estacionamiento en tiempo real en las calles de la ciudad, y también permita a los agentes observar situaciones particulares para un mejor control de tránsito. Además, la recolección de ciertos datos , permitirán más usos para el futuro. 
 
 ___
 
@@ -124,7 +125,7 @@ El sistema ofrece soporte para datos propios del sistema.
 | Código | CFG_SIS_0001 | Nombre | Configuración sistema |
 |---|:---:|---|:---:|
 | Descripción | El sistema proveerá archivos de configuración a los usuarios administradores con la información necesaria para realizar: configuración del sistema, configuración de la interfaz gráfica, configuración de los sensores, mantenimiento del sistema |  |  |
-| Prioridad |  1 | Rel. | INT_GRAL_0001; US_GRAL_0001; BD_GRAL_0001  |
+| Prioridad |  1 | Rel. | INT_GRAL_0001 US_GRAL_0001 BD_GRAL_0001  |
 | Trazabilidad | - | Ref. | - |
 
 ###   **5.2. Requerimientos Generales - Bajo Nivel** 
@@ -242,7 +243,7 @@ Se desarrolla mediante Android Studio la aplicación que permitirá brindar la i
 
 ##  7. Implementación
 
-Con lo que respecta a la implementación, es necesario aclarar que no se cuenta con los elementos “reales” para la realización, entiéndase sensores PlacePod, servidor Lora; por lo que fue necesario simular todo el escenario real con herramientas auxiliares para representar la implementación del sistema. Esto implica también limitaciones al momento del cumplimiento de los ítems presentados en la etapa de diseño.
+Con lo que respecta a la implementación, es necesario aclarar que no se cuenta con los elementos “reales” para la realización, entiéndase sensores PlacePod, servidor específico de estos mismos que almacena la información; por lo que fue necesario simular todo el escenario real con herramientas auxiliares para representar la implementación del sistema. Esto implica también limitaciones al momento del cumplimiento de los ítems presentados en la etapa de diseño.
 
 Lo primero que se pensó es cuál iba a ser el servidor que iba a recibir y procesar toda la información. En un primer momento se pensó en Cayenne, pero se presentaron muchas limitaciones al momento de mostrar los paneles necesarios, ya que era necesario contar con el sensor específico para mostrar la información como se requiere, por lo que el servidor utilizado finalmente fue Thingsboard Cloud Edition, que permitirá recibir la información pertinente, procesarla creando los paneles de visualización que muestren la información requerida para los diferentes usuarios y gestione el acceso a ellos.
 
@@ -254,11 +255,29 @@ Una vez hecho esto, se creó una aplicación con el software Android Studio, que
 
 En este apartado se desarrolla cómo sería el proceso de implementación del sistema en caso de que se vaya a llevar a cabo. La explicación se denota de manera simple, ya que , como se estableció anteriormente, al no contar con el equipamiento real, la información con la que se cuenta es la que se encuentra en las páginas de los equipos o sistemas a usar sin conocer las consideraciones que se deben tener al momento de implementarlo en una situación real.
 
-**VER IMPLEMENTACION**
+El primer paso para la implementación de este sistema, es preparar la ciudad. Específicamente, se trata de preparar las calles con slots bien específicos de estacionamiento, permitiendo así marcar la zona de detección de cada uno de los vehículos. Esto quiere decir, que para que el sistema funcione bien correctamente, los ciudadanos deberán respetar también estos espacios asignados, y estacionar correctamente en los espacios delimitados.
+
+Con el primer paso realizado, ya se puede proceder a la activación de los sensores. Como se manifestó en la parte de diseño, los equipos elegidos son los sensores PlacePod "In-Ground", que enviarán una señal de RF a un gateway con LoRa para manejar esa información en un servidor/nube y luego se mostrará en una aplicación. Todo el proceso esta resumido en la documentación del manual de usuario de forma general, por lo que se ampliará brevemente cómo se debe implementar, apoyándose en la documentación, ya que así se pueden apreciar mejor aspectos técnicos que son requeridos[[1]](#1).
+
+<img src="\Imagenes\impl_real.jpg" width="250" height="75">
+
+Como estos sensores requieren de una conexión a un gateway, previamente se debe contar con un LoRa Network Gateway ya funcional. El tipo de LoRa que estos sensores requieren es del tipo Clase A.
+
+Ahora sí, para la instalación de los sensores primero se debe fijar en el identificador de cada sensor, para poder identificarlo con cada slot, esto es mediante el código presente en la parte inferior de los mismos, donde se puede ver algo como esto:
+
+<img src="\Imagenes\code_PP.jpg" width="250" height="116">
+
+Una vez identificado los sensores y emparejados con la ubicación correspondiente, se pasa a la activación y calibración de los mismos. El proceso se encuentra explicado de manera más detallada y técnica en la documentación de la página de los sensores, que se enxará junto con este informa apra su visualización. Pero para dejar al lector con una idea, mediante una aplicación es posible activarlos, seleccionar la frecuencia de trabajo, la radio frecuencia a la que enviarán información a un gateway específico, calibraciones, etc[[2]](#2).
+
+Con los sensores activados, calibrados y una vez verificado que se tiene salida hacia el gateway, se procede a la instalación de los sensores en la calle. Todo los detalles técnicos de cómo se debe instalar el sensor con las precauciones necesarias y los elementos aptos, se encuentran también en la documentación de la página correspondiente a los sensores[[3]](#3).
+
+Con los sensores funcionales y calibrados, restaría poseer un entorno que permita visualizar toda la información generada por los sensores. La misma empresa distribuidora de sensores brinda una página que posee una interfaz gráfica con información completa de los sensores, con un mapa interactivo y gráficas de valores estadísticos. Esta interfaz está solo disponible para el administrador, pero tiene la posibilidad de generar dashboards, para generar la interfaz de los usuarios. Para más información se recomienda leer la documentación correspondiente[[4]](#4).
+
+Para la visualización por parte de los dashboard de los usuarios, al usar cayenne, mediante la app de Cayenne Devices seguramente sea posible la visulización de la interfaz creada. Al no contar con los sensores, no se cuenta con la posibilidad de asegurar esto, pero con la documentación, se considera que es la opción que se opta en este sistema.
 
 ###   **7.2. Implementación mediante una simulación del entorno**
 
-Para la implementación práctica del sistema, se usó la plataforma Thingsboard, el lenguaje de programación python, computadora de placa única Raspberry Pi y Android Studio.
+Para la implementación práctica del sistema, al no contar con  se usó la plataforma Thingsboard, el lenguaje de programación python, computadora de placa única Raspberry Pi y Android Studio.
 
 El primer paso fue simular el comportamiento de los sensores mediante un script de python, el cual primero debe cargar la credencial de los dispositivos. Aquí es necesario crear los sensores en la pestaña de dispositivos, en donde a cada sensor se le asigna un nombre, un token de acceso (que es la contraseña que permite crear el cliente para enviarle información) y atributos que permitirán mostrar la información más adelante, estos son la latitud y longitud de cada uno de ellos (elegidas manualmente en este caso, por ser algo representativo). Con los dispositivos generados y los tokens de acceso asignados, ya es posible establecer una conexión con el servidor, mediante el protocolo MQTT.
 
@@ -284,6 +303,7 @@ Este código también conecta con el servidor, pero esta vez envía los datos si
 
 <img src="\Imagenes\maq5.jpg" width="200" height="250">
 
+En el caso real, la idea sería la creación de sensores magnéticos, que son más confiables a la hora de estar en ambientes extremos.
 
 Con los dispositivos creados y ya enviada su información con el código explicado anteriormente, se maneja la información mediante el uso de Paneles, en la página de ThingsBoard. Aquí se muestra la información de los sensores, mediante mapas y gráficos, creando diferentes instancias para usuarios y agentes. 
 
@@ -291,13 +311,15 @@ El mapa mostrará los puntos donde se ubican los sensores, de diferente color se
 
 Una vez que está todo diseñado, se crean links de acceso para los usuarios comunes, para que solo tengan permisos de vista. Para los agentes se les crea una credencial especial para que puedan ingresar a los paneles correspondientes, de modo que la visualización para ellos, es solo accesible mediante un acceso con usuario y contraseña.
 
+Lo que aquí se realiza con ThingsBoard, en realidad se debería aplicar con un servidor LoRa tipo A, con una activación tipo OTAA (elegidos según el tipo de sistema que se quiere emplear). Se repite que, al no contar con lo necesario para realizarlo, la información fue enviada directamente al servidor.
+
 Una vez que se verifica que todo funciona, se usa Android Studio para la visualización de los paneles de Thingsboard mediante una aplicación. 
 
 <img src="\Imagenes\impl_app.jpg" width="175" height="200">
 
 <img src="\Imagenes\impl_app_2.jpg" width="150" height="250">
 
-Esta consta de un menú de inicio en el que se selecciona el tipo de usuario: agente o conductor. Según sea el usuario que se elija, se mostrarán en pantalla los paneles de Thingsboard correspondientes. [[1]](#1)
+Esta consta de un menú de inicio en el que se selecciona el tipo de usuario: agente o conductor. Según sea el usuario que se elija, se mostrarán en pantalla los paneles de Thingsboard correspondientes[[5]](#5).
 
 <img src="\Imagenes\impl_app_inicio.jpg" width="150" height="250">
 
@@ -305,15 +327,29 @@ Esta consta de un menú de inicio en el que se selecciona el tipo de usuario: ag
 
 Por último se realizó el testing al sistema desarrollado a lo largo del informe. En esta etapa se buscó evaluar y mejorar la calidad del producto a lo largo del proceso verificando el sistema mientras se ejecuta. A continuación se adjunta el documento de ensayos en el cual se muestran distintos casos de prueba en función a los requerimientos y el diseño del sistema.
 
-
-
-##  9. Conclusión
+## 9. Análisis de resultados
 
 
 
-##  10. Anexos
+##  10. Conclusión
 
-#### [1] #### 
-*Repositorio Git con el código python simuladora de lso sensores, archivos .json de paneles de thingsboard y archivo de la aplicación creada:* <https://github.com/MatiCaminati/Parking4.0.git>
+
+
+##  11. Anexos
+
+#### [1] ####
+*PNI PlacePod Vehicle Detection Sensor User Manual:* <https://placepod.com/wp-content/uploads/2022/02/PNI-PlacePod-Vehicle-Detection-Sensor-User-Manual-V4.1.pdf>
+
+#### [2] ####
+*PlacePod Sensor Utility Andriod User Manual:* <https://placepod.com/wp-content/uploads/2022/01/PlacePod-Sensor-Utility-Android-User-Manual.pdf>
+
+#### [3] ####
+*PlacePod Sensor Smart Parking Sensor Installation Guide:* <https://placepod.com/wp-content/uploads/2022/01/PlacePod-Smart-Parking-Sensor-Installation-Guide-V2.1.pdf>
+
+#### [4] ####
+*PNI Sensor Parking Management App User Manual:* <https://placepod.com/wp-content/uploads/2022/02/PNI-Sensor-Parking-Management-App-User-Manual-Feb2022.pdf>
+
+#### [5] #### 
+*Repositorio Git con el código python simulador de los sensores, archivos .json de paneles de thingsboard y archivo de la aplicación creada:* <https://github.com/MatiCaminati/Parking4.0.git>
 
 
