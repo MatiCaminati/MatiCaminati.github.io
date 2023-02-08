@@ -41,7 +41,13 @@ ___
 - [4. Objetivos](#4-objetivos)
 - [5. Requerimientos](#5-requerimientos)
     - [5.1. Requerimientos generales - Alto Nivel](#51-requerimientos-generales---alto-nivel)
+        - [5.1.1. Características generales](#511-características-generales)
+        - [5.1.2. Interfaz de usuario](#512-interaz-de-usuario)
+        - [5.1.3. Persistencia de datos](#513-persistencia-de-datos)
     - [5.2. Requerimientos generales - Bajo Nivel](#52-requerimientos-generales---bajo-nivel)
+        - [5.2.1. Características del sistema](#521-características-del-sistema)
+        - [5.2.2. Interfaz de usuario](#522-interfaz-de-usuario)
+        - [5.2.3. Persistencia de datos](#523-persistencia-de-datos)
 - [6. Diseño](#6-diseño-del-sistema)
     - [6.1. Nivel 0](#61-nivel-0-l0)
     - [6.2. Nivel 1](#62-nivel-1-l1)
@@ -79,78 +85,80 @@ ___
 
 ####   ***5.1.1. Características Generales*** 
 
-| Código | 0011-IA | Nombre | Interfaz de Administración |
+| Código | INT_GRAL_0001 | Nombre | Interfaz de entrada/salida |
 |---|:---:|---|:---:|
-| Descripción | Se requiere la creación de un sistema para hacer un análisis estadístico de los contenedores de los puntos verdes de la ciudad.  |  |  |
+| Descripción | Se requiere la creación de un sistema que, al seleccionar el tipo de usuario, se redireccione a una interfaz gráfica que visualice las funciones del mismo, mediante un acceso con credenciales en caso de seleccionar un usuario específico.  |  |  |
 | Prioridad | 1 | Rel. | - |
 | Trazabilidad | - | Ref. | - |
 
-| Código | 0022-US | Nombre | Usuarios del Sistema |
+| Código | US_GRAL_0001 | Nombre | Usuarios del Sistema |
 |---|:---:|---|:---:|
-| Descripción | El producto deberá permitir que sea utilizado por 2 tipos de usuario: El “usuario común”, referente a los conductores de vehículos, que recibirán información sobre la disponibilidad de los slots de estacionamiento. Un “usuario controlador”, referente a los agentes de tránsito, que usarán la información disponible para optimizar los controles en la vía pública. El administrador, que se encargará del mantenimiento de la aplicación, y contará con acceso a Thingsboard, donde se almacenan y manejan todos los datos necesarios . |  |  |
+| Descripción | El producto deberá permitir que sea utilizado por 2 tipos de usuario: El “usuario común”, con acceso a las funciones básicas. Estos son: conductores y agentes de tránsito. El administrador, que contará con acceso a la totalidad de las funciones. |  |  |
 | Prioridad | 1 | Rel. | - |
 | Trazabilidad | - | Ref. | - |
 
-| Código | 0033-BD | Nombre | Base de Datos |
+| Código | BD_GRAL_0001 | Nombre | Base de Datos |
 |---|:---:|---|:---:|
 | Descripción | El sistema deberá poseer una base de datos que permita el almacenamiento de la información de los sensores ubicados en los diferentes slots de almacenamiento. |  |  |
 | Prioridad | 1 | Rel. | - |
 | Trazabilidad | - | Ref. | - |
 
-####   ***5.1.2. Interaz de usuario***  
+####   ***5.1.2. Interfaz de usuario***  
 
-Mediante la definición de la interfaz de usuario se provee acceso a los mismos a las herramientas con las que cuenta para poder realizar las tareas necesarias de planificación.
-
-| Código | 0011-IA | Nombre | Interfaz de Administrador |
+| Código | USR_INT_0001 | Nombre | Interfaz de Administrador |
 |---|:---:|---|:---:|
-| Descripción | La aplicación debe proveer una interfaz que permita al administrador visualizar y analizar los siguientes datos de los sensores: Disponibilidad (detectando presencia o no de un vehículo) . Cambiar el estado de los slots en el mapa según la disponibilidad. La cantidad de slots ocupados. Un estadístico de cada slot del tiempo de ocupación histórico. |  |  |
-| Prioridad | 1 | Rel. | - |
+| Descripción | Los administradores tendrán acceso a la nube, de modo que posean una interfaz que les permita visualizar y analizar los siguientes datos de los sensores: disponibilidad (presencia o no de un vehículo),  cambiar el estado de los slots en el mapa manualmente en caso de malfuncionamiento, cantidad de slots ocupados, diferentes estadísticos de los slots según se requiera por parte de sus superiores. |  |  |
+| Prioridad | 1 | Rel. | US_GRAL_0001 |
+| Trazabilidad | - | Ref. | - |
+
+| Código | USR_INT_0002 | Nombre | Interfaz de Usuario |
+|---|:---:|---|:---:|
+| Descripción | El sistema debe proveer una interfaz en donde se seleccione el tipo de usuario, para ser redireccionado a la visualización de la información, mediante credenciales pertinentes en caso de pertenecer al usuario común Agente de Tránsito. |  |  |
+| Prioridad | 1 | Rel. | US_GRAL_0001 |
 | Trazabilidad | - | Ref. | - |
 
 ####   ***5.1.3. Persistencia de datos*** 
 
-El sistema ofrece soporte para dos tipos de datos persistentes:
-* Datos propios del sistema 
-* Datos generados por el usuario
+El sistema ofrece soporte para datos propios del sistema.
 
-| Código | 0033-BD | Nombre | Base de datos |
+| Código | CFG_SIS_0001 | Nombre | Configuración sistema |
 |---|:---:|---|:---:|
-| Descripción | El sistema proveerá un archivo del almacenamiento de los datos recolectados del sensor. |  |  |
-| Prioridad |  1 | Rel. | - |
-| Trazabilidad | - | Ref. | - |
-
-| Código | 0044-AC | Nombre | Archivo de Configuración |
-|---|:---:|---|:---:|
-| Descripción | El sistema proveerá archivos de configuración con la información necesaria para realizar: Configuración del sistema. Configuración de la interfaz gráfica. Configuración de los sensores. Mantenimiento del sistema. |  |  |
-| Prioridad | 1 | Rel. | - |
+| Descripción | El sistema proveerá archivos de configuración a los usuarios administradores con la información necesaria para realizar: <li>Configuración del sistema.</li> <li>Configuración de la interfaz gráfica.</li> <li>Configuración de los sensores.</li> <li>Mantenimiento del sistema.</li> |  |  |
+| Prioridad |  1 | Rel. | <li>INT_GRAL_0001</li><li>US_GRAL_0001</li><li>BD_GRAL_0001</li>   |
 | Trazabilidad | - | Ref. | - |
 
 ###   **5.2. Requerimientos Generales - Bajo Nivel** 
 
 Esta sección describe los requerimientos del sistema relativos a las funcionalidades o requerimientos generales (alto nivel) que requieren mayor especificidad.
 
-####   ***5.2.1. Usuarios del sistema [ 0022 - US ]*** 
+####   ***5.2.1. Características del sistema*** 
 
-| Código | 0022-US-UR | Nombre | Usuario Común |
+| Código | INT_LL_0001 | Nombre | Interfaz sistema |
 |---|:---:|:---:|:---:|
-| Descripción | Los usuarios comunes, es decir, los conductores, tendrán accesibilidad, mediante una aplicación, a un mapa en el cual podrán visibilizar la disponibilidad de los slots de estacionamiento en distintas calles de la ciudad. |  |  |
-| Prioridad | 1  | Rel. | - |
+| Descripción | El sistema debe poseer un menú de selección de usuario común, entiéndase, conductor o agente de tránsito. Mediante la selección de uno de estos se los redirecciona a los paneles de visualización correspondientes. Para el caso de los agentes de tránsito, en la misma página de visualización se le requerirá el ingreso de credenciales previamente brindado por el usuario administrador. |  |  |
+| Prioridad | 1  | Rel. | INT_GRAL_0001 |
 | Trazabilidad | - | Ref. | - |
 
-####   ***5.2.2. Interaz de usuario [ 0011 - IA ]*** 
-
-| Código | 0011-IA | Nombre | Interfaz de administrador |
-|---|:---:|---|:---:|
-| Descripción | Se vizualizará  Mapa con los sensores y su disponibilidad, de la misma manera que lo descrito en [ 0022 - US ]. Se mostrarán además gráficas históricas de la cantidad de slots ocupados por calle, de modo que la información le sea útil a los agentes para los controles de tránsito. Una gráfica para cada slot con la información histórica de la disponibilidad, para un análisis del tráfico. |  |  |
-| Prioridad | 1  | Rel. | - |
+| Código | INT_LL_0002 | Nombre | Cuenta Usuarios Comunes - Agentes de tránsito |
+|---|:---:|---|---|
+| Descripción | Los usuarios comunes referentes a los agentes de tránsito, deben contar con credenciales para poder acceder a la visualización de las funciones del sistema. Estas credenciales son generadas por el administrador mediante el servidor y sin posibilidad de ser modificadas por el usuario común. |  |  |
+| Prioridad | 1 | Rel. | USR_GRAL_0001 |
 | Trazabilidad | - | Ref. | - |
 
-####   ***5.2.3. Persistencia de datos [ 0033-BD ] *** 
+####   ***5.2.2. Interfaz de usuario*** 
 
-| Código | 0033-BD | Nombre | Base de datos |
+| Código | INT_LL_0003 | Nombre | Interfaz de sistema |
 |---|:---:|---|:---:|
-| Descripción | Los datos acumulados se mantienen por el periodo de un año, pasado este se eliminan del sistema. |  |  |
-| Prioridad | 1 | Rel. | - |
+| Descripción | Se vizualizará  inicialmente una instancia para poder seleccionar el usuario. Una vez seleccinado se redireccionará a una página que permita observar un mapa con los sensores y su disponibilidad. Se mostrarán además, para el caso de usuarios comunes correspondiente a los agentes de tránsito, diferentes gráficas con estadísticos que se soliciten al administrador, a modo de brindar información útil a los agentes para los controles de tránsito. |  |  |
+| Prioridad | 1  | Rel. | USR_INT_0002 |
+| Trazabilidad | - | Ref. | - |
+
+####   ***5.2.3. Persistencia de datos*** 
+
+| Código | BD_LL_0001 | Nombre | Base de datos |
+|---|:---:|---|:---:|
+| Descripción | Se debe contar con archivos que permitan: <li>Configuración del sistema, con un formato que permita al adminsitrador modificar de manera simple los datos.</li> <li>Configuración de la interfaz gráfica, con el formato que le permita al administrador la amyor facilidad de modificar la interfaz gráfica de las funciones.</li> <li>Configuración de los sensores, mediante un formato .xslx para almacenar los datos de sensores y poder conectarse al servidor.</li> <li>Mantenimiento del sistema.</li> |  |  |
+| Prioridad | 1 | Rel. | CFG_SIS_0001 |
 | Trazabilidad | - | Ref. | - |
 
 ___
@@ -165,7 +173,7 @@ ___
 
 ###   **6.1. Nivel 0 (L0)**
 
-![L0](\Imagenes\sis_level0.jpg)
+<img src="\Imagenes\sis_level0.jpg" width="250" height="80">
 
 ####  ***Sistema*** 
 Se encarga de recibir la información generada por los sensores y procesar la información que llega a los diferentes usuarios.
@@ -174,7 +182,7 @@ Se encarga de recibir la información generada por los sensores y procesar la in
 
 ###   **6.2. Nivel 1 (L1)**
 
-![L1](\Imagenes\sis_level1.jpg)
+<img src="\Imagenes\sis_level1.jpg" width="250" height="118">
 
 #### ***Sensores PlacePod***
 
@@ -228,7 +236,7 @@ La aplicación Thingsboard es la encargada de cumplir la función de monitoreo, 
 
 #### ***Aplicación***
 
-![L2_Aplicación](\Imagenes\sis_level2_app.jpg)
+<img src="\Imagenes\sis_level2_app.jpg" width="250" height="70">
 
 Se desarrolla mediante Android Studio la aplicación que permitirá brindar la información proveniente de los sensores a diferentes usuarios ya específicados previamente. Se eligió este modelo ya que mediante ThingsBoard y su visualización de paneles, con un simple WebView se puede imprimir en pantalla la información procesada.
 
@@ -296,6 +304,8 @@ Esta consta de un menú de inicio en el que se selecciona el tipo de usuario: ag
 ##  8. Plan de ensayos
 
 Por último se realizó el testing al sistema desarrollado a lo largo del informe. En esta etapa se buscó evaluar y mejorar la calidad del producto a lo largo del proceso verificando el sistema mientras se ejecuta. A continuación se adjunta el documento de ensayos en el cual se muestran distintos casos de prueba en función a los requerimientos y el diseño del sistema.
+
+
 
 ##  9. Conclusión
 
