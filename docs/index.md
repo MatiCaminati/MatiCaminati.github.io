@@ -30,7 +30,7 @@ ___
 
 El proyecto tiene como objetivo agilizar el tráfico de la ciudad de Río Cuarto, enfocándose en la agilidad al momento de estacionar en lugares con gran circulación. Es un problema común la búsqueda de un lugar de estacionamiento al momento de desplazarse por la ciudad, más aún en los lugares de mayor circulación, derivando en estacionamiento saturado, pagar altas tarifas, mayor impacto ambiental, estacionamiento en la calle o fuera de la calle, uso inadecuado del estacionamiento existente, etc.
 
-En primer lugar se desarrolla una breve introudcción a la situación analizada y se plantearán los objetivos del proyecto. Luego se detallarán los requerimientos de alto y bajo nivel que el mismo debe cumplir. Seguirá la etapa de diseño del software haciendo una descripción más profunda de la funcionalidad del mismo y cómo llevarlo a cabo para posteriormente detallar como fue implementado, seguido de la etapa de ‘testing’ en la cual se analiza el correcto funcionamiento de todas las etapas del proyecto. Finalmente, en la conclusión se exponen ideas finales del producto y los potenciales que este posee en caso de un funcionamiento exitoso con el tiempo.
+En primer lugar se desarrolla una breve introducción a la situación analizada y se plantearán los objetivos del proyecto. Luego se detallarán los requerimientos de alto y bajo nivel que el mismo debe cumplir. Seguirá la etapa de diseño del software haciendo una descripción más profunda de la funcionalidad del mismo y cómo llevarlo a cabo para posteriormente detallar como fue implementado, seguido de la etapa de ‘testing’ en la cual se analiza el correcto funcionamiento de todas las etapas del proyecto. Finalmente, en la conclusión se exponen ideas finales del producto y los potenciales que este posee en caso de un funcionamiento exitoso con el tiempo.
 
 ___
 
@@ -68,9 +68,9 @@ El Departamento de Asuntos Económicos y Sociales de la ONU predice que todo el 
 
 Al profundizar más en esta problemática, se aprecia la necesidad de un sistema inteligente de IoT que permita actuar sobre esta y brinde una solución pertinente.
 
-Específicmente en la ciudad de Río Cuarto, ciudad en donde los actores de este informe se desenvuelven, la única solución presente es un mayor control por parte de agentes de tránsito, campañas de concientización y la propia capacidad de manejo de la gente. Muchas veces, alguno de estos factores no se ejercen de manera correcta o las personas no colaboran a que el tráfico sea un entorno amigable para los actores de la vía pública.
+ Específicamente en la ciudad de Río Cuarto, ciudad en donde los actores de este informe se desenvuelven, la única solución presente es un mayor control por parte de agentes de tránsito, campañas de concientización y la propia capacidad de manejo de la gente. Muchas veces, alguno de estos factores no se ejercen de manera correcta o las personas no colaboran a que el tráfico sea un entorno amigable para los actores de la vía pública.
 
-En el siguiente informe se detalla una solución a lo planteado anteriormente la cual toma esta problemática y la soluciona con la implementación de una aplicación ‘Parking 4.0’, que permite observar en un mapa los slots disponibles para estacionamiento en tiempo real en las calles de la ciudad, y también permita a los agentes observar situaciones particulares para un mejor control de tránsito. Además, la recolección de ciertos datos , permitirán más usos para el futuro. 
+En el siguiente informe se detalla una solución a lo planteado anteriormente, la cual toma esta problemática y la soluciona con la implementación de una aplicación ‘Parking 4.0’, que permite observar en un mapa los slots disponibles para estacionamiento en tiempo real en las calles de la ciudad, y también permita a los agentes observar situaciones particulares para un mejor control de tránsito. Además, la recolección de ciertos datos , permitirán más usos para el futuro. 
 
 ___
 
@@ -178,7 +178,7 @@ ___
 
 ##  6. Diseño del Sistema 
 
- Para llevar a cabo el diseño del Software requerido se opta por la Arquitectura basada en componentes con nivel de detalle. En el mismo se descompone el sistema en unidades componentes que deben tener especificadas sus entradas y salidas prescindiendo de una descripción detallada de su implementación, relacionándolos a través de conectores que especifican y gobiernan la interacción entre los mismos. Estos componentes deben encapsular funcionalidades y comportamientos, y cumplir con ciertas características como ser reutilizables en diferentes situaciones y aplicaciones, extensibles a partir de componentes existentes  para proporcionar un nuevo comportamiento y no ser específicos del contexto. Así esta metodología proporciona un mayor nivel de abstracción y divide el problema en subproblemas, cada uno asociado con una unidad componente facilitando el desarrollo del sistema pedido. Se especifican tres niveles de detalle.
+ Para llevar a cabo el diseño del Software requerido se opta por la Arquitectura basada en componentes con nivel de detalle. En el mismo se descompone el sistema en unidades componentes que deben tener especificadas sus entradas y salidas, prescindiendo de una descripción detallada de su implementación, relacionándolos a través de conectores que especifican y gobiernan la interacción entre los mismos. Estos componentes deben encapsular funcionalidades y comportamientos, y cumplir con ciertas características, como ser reutilizables en diferentes situaciones y aplicaciones, extensibles a partir de componentes existentes  para proporcionar un nuevo comportamiento y no ser específicos del contexto. Así, esta metodología proporciona un mayor nivel de abstracción y divide el problema en subproblemas, cada uno asociado con una unidad componente, facilitando el desarrollo del sistema pedido. Se especifican tres niveles de detalle.
 - Nivel 0 (L0): Sistema simplificado con un solo objeto o bloque que describe el proyecto. Una entrada y una salida. (Opcional)
 - Nivel 1 (L1): Se expande el bloque del Nivel 0 detallando a gran escala el mismo.
 - Nivel 2 (L2): Se describe a mayor detalle cada bloque del nivel anterior. Exponiendo de forma resumida las tecnologías que se van a utilizar para lograr la integración.
@@ -186,7 +186,7 @@ ___
 
 ###   **6.1. Nivel 0 (L0)**
 
-<img src="\Imagenes\sis_level0.jpg" width="250" height="80">
+<img src="\Imagenes\sis_level0.jpg" width="350" height="128">
 
 ####  ***Sistema*** 
 Se encarga de recibir la información generada por los sensores y procesar la información que llega a los diferentes usuarios.
@@ -195,7 +195,7 @@ Se encarga de recibir la información generada por los sensores y procesar la in
 
 ###   **6.2. Nivel 1 (L1)**
 
-<img src="\Imagenes\sis_level1.jpg" width="250" height="118">
+<img src="\Imagenes\sis_level1.jpg" width="400" height="188">
 
 #### ***Sensores PlacePod***
 
@@ -269,23 +269,23 @@ En este apartado se desarrolla cómo sería el proceso de implementación del si
 
 El primer paso para la implementación de este sistema, es preparar la ciudad. Específicamente, se trata de preparar las calles con slots bien específicos de estacionamiento, permitiendo así marcar la zona de detección de cada uno de los vehículos. Esto quiere decir, que para que el sistema funcione bien correctamente, los ciudadanos deberán respetar también estos espacios asignados, y estacionar correctamente en los espacios delimitados.
 
-Con el primer paso realizado, ya se puede proceder a la activación de los sensores. Como se manifestó en la parte de diseño, los equipos elegidos son los sensores PlacePod "In-Ground", que enviarán una señal de RF a un gateway con LoRa para manejar esa información en un servidor/nube y luego se mostrará en una aplicación. Todo el proceso esta resumido en la documentación del manual de usuario de forma general, por lo que se ampliará brevemente cómo se debe implementar, apoyándose en la documentación, ya que así se pueden apreciar mejor aspectos técnicos que son requeridos[[1]](#1).
+Con el primer paso realizado, ya se puede proceder a la activación de los sensores. Como se manifestó en la parte de diseño, los equipos elegidos son los sensores PlacePod "In-Ground", que enviarán una señal de RF a un gateway con LoRa para manejar esa información en un servidor/nube y luego se mostrará en una aplicación. Todo el proceso está resumido en la documentación del manual de usuario de forma general, por lo que se ampliará brevemente cómo se debe implementar, apoyándose en la documentación, ya que así se pueden apreciar mejor aspectos técnicos que son requeridos[[1]](#1).
 
-<img src="\Imagenes\impl_real.jpg" width="250" height="75">
+<img src="\Imagenes\impl_real.jpg" width="400" height="120">
 
 Como estos sensores requieren de una conexión a un gateway, previamente se debe contar con un LoRa Network Gateway ya funcional. El tipo de LoRa que estos sensores requieren es del tipo Clase A.
 
 Ahora sí, para la instalación de los sensores primero se debe fijar en el identificador de cada sensor, para poder identificarlo con cada slot, esto es mediante el código presente en la parte inferior de los mismos, donde se puede ver algo como esto:
 
-<img src="\Imagenes\code_PP.jpg" width="250" height="116">
+<img src="\Imagenes\code_PP.jpg" width="400" height="185">
 
-Una vez identificado los sensores y emparejados con la ubicación correspondiente, se pasa a la activación y calibración de los mismos. El proceso se encuentra explicado de manera más detallada y técnica en la documentación de la página de los sensores, que se enxará junto con este informa apra su visualización. Pero para dejar al lector con una idea, mediante una aplicación es posible activarlos, seleccionar la frecuencia de trabajo, la radio frecuencia a la que enviarán información a un gateway específico, calibraciones, etc[[2]](#2).
+Una vez identificado los sensores y emparejados con la ubicación correspondiente, se pasa a la activación y calibración de los mismos. El proceso se encuentra explicado de manera más detallada y técnica en la documentación de la página de los sensores, que se encarga junto con este informa para su visualización. Pero para dejar al lector con una idea, mediante una aplicación es posible activarlos, seleccionar la frecuencia de trabajo, la radio frecuencia a la que enviarán información a un gateway específico, calibraciones, etc[[2]](#2).
 
 Con los sensores activados, calibrados y una vez verificado que se tiene salida hacia el gateway, se procede a la instalación de los sensores en la calle. Todo los detalles técnicos de cómo se debe instalar el sensor con las precauciones necesarias y los elementos aptos, se encuentran también en la documentación de la página correspondiente a los sensores[[3]](#3).
 
 Con los sensores funcionales y calibrados, restaría poseer un entorno que permita visualizar toda la información generada por los sensores. La misma empresa distribuidora de sensores brinda una página que posee una interfaz gráfica con información completa de los sensores, con un mapa interactivo y gráficas de valores estadísticos. Esta interfaz está solo disponible para el administrador, pero tiene la posibilidad de generar dashboards, para generar la interfaz de los usuarios. Para más información se recomienda leer la documentación correspondiente[[4]](#4).
 
-Para la visualización por parte de los dashboard de los usuarios, al usar cayenne, mediante la app de Cayenne Devices seguramente sea posible la visulización de la interfaz creada. Al no contar con los sensores, no se cuenta con la posibilidad de asegurar esto, pero con la documentación, se considera que es la opción que se opta en este sistema.
+Para la visualización por parte de los dashboard de los usuarios, al usar cayenne, mediante la app de Cayenne Devices seguramente sea posible la visualización de la interfaz creada. Al no contar con los sensores, no se cuenta con la posibilidad de asegurar esto, pero con la documentación, se considera que es la opción que se opta en este sistema.
 
 ###   **7.2. Implementación mediante una simulación del entorno**
 
@@ -293,20 +293,20 @@ Para la implementación práctica del sistema, al no contar con  se usó la plat
 
 El primer paso fue simular el comportamiento de los sensores mediante un script de python, el cual primero debe cargar la credencial de los dispositivos. Aquí es necesario crear los sensores en la pestaña de dispositivos, en donde a cada sensor se le asigna un nombre, un token de acceso (que es la contraseña que permite crear el cliente para enviarle información) y atributos que permitirán mostrar la información más adelante, estos son la latitud y longitud de cada uno de ellos (elegidas manualmente en este caso, por ser algo representativo). Con los dispositivos generados y los tokens de acceso asignados, ya es posible establecer una conexión con el servidor, mediante el protocolo MQTT.
 
-Una vez que la conexión se establece, ya puede enviarse información, por lo que es necesario simular los datos que enviaría un sensor PlacePod. Para ello, en archivos de lenguaje python, mediante la generación de un vector de 6 valores 1/0 de forma aleatoria, se representó un sensor que está detectando o no presencia de objetos, respectivamente. Este vector que junta la información generada, es enviado al servidor mediante una función específica que se extrae de la documentación de Thingsboard. Esto no se hace en todo momento, sino que la información se envía cada cierto tiempo, ya que se considera que en la realidad, los datos no se actualizan en tiempo real, será cada cierto tiempo a determinar.
+Una vez que la conexión se establece, ya puede enviarse información, por lo que es necesario simular los datos que enviaría un sensor PlacePod. Para ello, en archivos de lenguaje python, mediante la generación de un vector de 6 valores 1/0 de forma aleatoria, se representó un sensor que está detectando o no presencia de objetos, respectivamente. Este vector, que junta la información generada, es enviado al servidor mediante una función específica que se extrae de la documentación de Thingsboard. Esto no se hace en todo momento, sino que la información se envía cada cierto tiempo, ya que se considera que en la realidad, los datos no se actualizan en tiempo real, será cada cierto tiempo a determinar.
 
 En resumen, este código:
 * Conecta los sensores al servidor mediante credenciales.
 * Simula el comportamiento de los sensores.
 * Envía la información al servidor.
 
-Luego se decidió implementar una forma más visible de lo que realiza el sistema, por lo que, con el uso de una Raspberry Pi se creó una maqueta.
+Luego se decidió implementar una forma más visible de lo que realiza el sistema, por lo que, con el uso de una Raspberry Pi, se creó una maqueta.
 
 <img src="\Imagenes\maq1.jpg" width="200" height="250"> 
 
 <img src="\Imagenes\maq4.jpg" width="200" height="200">
 
-En la Raspberry, se colocaron 6 LEDs y 2 sensores infrarrojos. La idea fue, mediante un script en python, simular el comportamiento de 4 sensores, que, según su estado generado de forma aleatoria, se prenden o apagan. Para los 2 sensores extras, se usaron los sensores infrarrojos que, según tengan o no objetos enfrente, encenderán los led correspondientes.
+En la Raspberry, se colocaron 6 LED y 2 sensores infrarrojos. La idea fue, mediante un script en python, simular el comportamiento de 4 sensores, que, según su estado generado de forma aleatoria, se prenden o apagan. Para los 2 sensores extras, se usaron los sensores infrarrojos que, según tengan o no objetos enfrente, encenderán los LED correspondientes.
 Este código también conecta con el servidor, pero esta vez envía los datos simulados de los 4 sensores y lo que generan los 2 infrarrojos (presencia o no de objetos).
 
 <img src="\Imagenes\maq3.jpg" width="200" height="250">
@@ -331,24 +331,30 @@ Esta consta de un menú de inicio en el que se selecciona el tipo de usuario: ag
 
 ##  8. Plan de ensayos
 
-Por último se realizó el testing al sistema desarrollado a lo largo del informe. En esta etapa se buscó evaluar y mejorar la calidad del producto a lo largo del proceso verificando el sistema mientras se ejecuta. A continuación se adjunta el documento de ensayos en el cual se muestran distintos casos de prueba en función a los requerimientos y el diseño del sistema. 
+Por último, se realizó el testing al sistema desarrollado a lo largo del informe. En esta etapa se buscó evaluar y mejorar la calidad del producto a lo largo del proceso, verificando el sistema mientras se ejecuta. A continuación se adjunta el documento de ensayos en el cual se muestran distintos casos de prueba en función a los requerimientos y el diseño del sistema. 
 
 | ENSAYO  || 3/2/2023   ||
 |:---:|:---|:---:|:---|
 | Requerimiento | Ensayo | Resultado | Observaciones |
-| Maqueta funcional | La simulación del sensado representativa en la maqueta debe generar los datos correctamente. | POSITIVO | La simulación es realizada de manera correcta, según el encendido de los LED, que se corresponde al valor genrado por el código simulador de estacionamiento. |
-| Envío de datos al servidor | Los valores generados por la simulación deben enviarse correctamente al servidor. | POSITIVO | En el apartado de Última telemetría, en la sección de dispositivos, se observa que los valores relacionados a "Ocupado" o "Libre" de cad sensor, cambian según el generado por la simulación. |
+| Maqueta funcional | La simulación del sensado representativa en la maqueta debe generar los datos correctamente. | POSITIVO | La simulación es realizada de manera correcta, según el encendido de los LED, que se corresponden al valor generado por el código simulador de estacionamiento. |
+| Envío de datos al servidor | Los valores generados por la simulación deben enviarse correctamente al servidor. | POSITIVO | En el apartado de Última telemetría, en la sección de dispositivos, se observa que los valores relacionados a "Ocupado" o "Libre" de cada sensor, cambian según el generado por la simulación. |
 | Interfaz gráfica | Los dashboards generados en ThingsBoard deben ajustarse a la información recibida. | POSITIVO | En los mapas de los diferentes paneles el mapa ajusta la información mostrada según la última telemetría recibida. |
-| Acceso a diferente interfaz gráfica según tipo de usuario | Los diferentes paneles erán accesibles solo para aquel usuario al que se le ha dado el permiso o las credenciales correspondientes. | POSITIVO | Los usuarios conductores acceden sin necesidad de loguearse a su panel correspondiente de visualización. Mientras que los agentes poseen un panel al que solo se puede ingresar con credenciales generadas por el administrador. |
-| Visualización de los paneles en la aplicación | Debe ser posible la visualización generada en ThingsBoard desde la aplicación para teléfono móvil. | NEGATIVO | Si bien la posibilidad de elegir entre usuarios es correcta, y es redirigido correctamente hacia la página web, ésta no carga. |
-| Configuración del sistema | El administrador debe contar con la posibilidad de modificar cualquier apartado del sistema. | POSITIVO | El administrdor cuenta con sus credenciales personales que permiten modificar libremente la interfaz gráfica (en ThingsBoard o con archivos .json), manejar información de los sensores (realizable desde el mismo servidor y del código de simulación) y la gestión de credenciales de los usuarios según los paneles creados. |
-| Persistencia de datos | Se deben poder visualizar los datos con un período anterior a un (1) año | POSITIVO | Desde el servidor, es posible modificar esta ventatna de tiempo para ajustarlo a este período y observar los datos necesarios. |
+| Acceso a diferente interfaz gráfica según tipo de usuario | Los diferentes paneles serán accesibles solo para aquel usuario al que se le ha dado el permiso o las credenciales correspondientes. | POSITIVO | Los usuarios conductores acceden sin necesidad de loguearse a su panel correspondiente de visualización. Mientras que los agentes poseen un panel al que solo se puede ingresar con credenciales generadas por el administrador. |
+| Visualización de los paneles en la aplicación | Debe ser posible la visualización generada en ThingsBoard desde la aplicación para teléfono móvil. | NEGATIVO | Si bien la posibilidad de elegir entre usuarios es correcta, y es redirigido correctamente hacia la página web, esta no carga. |
+| Configuración del sistema | El administrador debe contar con la posibilidad de modificar cualquier apartado del sistema. | POSITIVO | El administrador cuenta con sus credenciales personales que permiten modificar libremente la interfaz gráfica (en ThingsBoard o con archivos .json), manejar información de los sensores (realizable desde el mismo servidor y del código de simulación) y la gestión de credenciales de los usuarios según los paneles creados. |
+| Persistencia de datos | Se deben poder visualizar los datos con un período anterior a un (1) año | POSITIVO | Desde el servidor, es posible modificar esta ventana de tiempo para ajustarlo a este período y observar los datos necesarios. |
 
 ## 9. Análisis de resultados
 
-A partir del plan de ensayos realizado se observa que la simulación de lo que sería el sistema de estacionamiento inteligente, cumple con lo requerido. La generación de valores aleatorios y del sensado para simular al parking y su visualización es acertada con el uso del código en python y la Raspberry. Los valores son mostrados en un pequeño display y los LED se prenden correspondientemente con estos.
+A partir del plan de ensayos realizado, se observa que la simulación de lo que sería el sistema de estacionamiento inteligente, cumple con lo requerido. La generación de valores aleatorios y del sensado para simular al parking y su visualización es acertada con el uso del código en python y la Raspberry. Los valores son mostrados en un pequeño display y los LED se prenden correspondientemente con estos.
 
-imagen
+<img src="\Imagenes\res_1.jpg" width="400" height="300">
+
+<img src="\Imagenes\res_2.jpg" width="400" height="300">
+
+<img src="\Imagenes\res_3.jpg" width="400" height="300">
+
+<img src="\Imagenes\res_4.jpg" width="400" height="300">
 
 Estos datos son enviados correctamente al servidor, y esta información es usada para generar los paneles de visualización correspondientes al usuario conductor y a los agentes, por lo que los usuarios tienen acceso a identificar slots vacíos en las distintas ubicaciones en la que se ubiquen los sensores.
 
@@ -372,21 +378,29 @@ El primer problema que se encuentra, es en la aplicación. No porque no se pueda
 
 La solución que se encontró, temporal, es la de un botón que abra la interfaz desde el navegador, donde sí funciona.
 
-Todo esto que se realizó es totalmente configurable y mantenible por el admnistrador del proyecto, quien tiene acceso al código para ingresar nuevos sensores, administrar las credenciales de los mismos, acomodar los paneles según su gusto o las necesidades que se le exigieran, además del control del acceso al panel de agentes, ya que es este quien genera las credenciales para que pueda ser vista la interfaz.
+Todo esto que se realizó es totalmente configurable y mantenible por el administrador del proyecto, quien tiene acceso al código para ingresar nuevos sensores, administrar las credenciales de los mismos, acomodar los paneles según su gusto o las necesidades que se le exigieran, además del control del acceso al panel de agentes, ya que es este quien genera las credenciales para que pueda ser vista la interfaz.
 
-El sistema, reducido a esta escala parece simple, ya que se trata de solo 6 sensores, cuatro simulados y solo dos de ellos muestran más acertadamente como funcionaría realmente esto mediante un sensor con otra tecnología. Pero brinda un buen acercamiento a lo que es el sistema en sí.
+El sistema, reducido a esta escala, parece simple, ya que se trata de solo 6 sensores, cuatro simulados y solo dos de ellos muestran más acertadamente como funcionaría realmente esto mediante un sensor con otra tecnología. Pero brinda un buen acercamiento a lo que es el sistema en sí.
 
-Sin embargo, este análisi es algo totalmente necesarios, ya que la implementación más acorde sería con los elementos nombrados en la sección 7.1. Pero el prototipo para ver su funcionamiento debe ser representado de otra forma, debido a la limitante de la disponibilidad de accesorios de lo que realmente se desea implementar. 
+Sin embargo, este análisis es algo totalmente necesarios, puesto que la implementación más acorde sería con los elementos nombrados en la sección 7.1. Pero el prototipo para ver su funcionamiento debe ser representado de otra forma, debido a la limitante de la disponibilidad de accesorios de lo que realmente se desea implementar. 
 
 Los sensores se simulan de manera correcta con el código, ya que se envían los mismos valores que estos enviarían, pero el servidor en este caso tuvo que ser "creado de cero", caso contrario a cuando se adquiere un PlacePod, el servidor ya viene preparado con lo necesario para su interfaz, por lo que no estaría la necesidad de crear todo como se tuvo que hacer aquí.
 
-En cuanto a la visulización en una aplicación, no se sabe realmente como sería porque no se cuenta con el servidor para ver las posibilidades de visualización que este brinda. Por lo que se supone que una aplicación es una correcta solución. Al usar Cayenne de forma oficial, seguramente con Cayenne Devices se pueda lograr una visualización similar a la que se logró en este proyecto, por lo que la representación se asemeja a lo esperado.
+En cuanto a la visualización en una aplicación, no se sabe realmente como sería porque no se cuenta con el servidor para ver las posibilidades de visualización que este brinda. Por lo que se supone que una aplicación es una correcta solución. Al usar Cayenne de forma oficial, seguramente con Cayenne Devices se pueda lograr una visualización similar a la que se logró en este proyecto, por lo que la representación se asemeja a lo esperado.
 
-Por último, en cuanto al administrador del sistema, este poseerá las mismas condiciones que se plantearon aquí. La carga de sensores con ubicación y credenciales es similar, con la diferencia de que en la realidad deberán ser calibrados y activados, pero la carga de credenciales y ubicación, se mantiene. La configuración de la interfaz es totalmente libre para él, mediante el servidor, administrando los accesos a la misma.
+Por último, en cuanto al administrador del sistema, este poseerá las mismas condiciones que se plantearon aquí. La carga de sensores con ubicación y credenciales es similar, con la diferencia de que en la realidad deberán ser calibrados y activados, pero la carga de credenciales y ubicación, se mantiene. Además, la aplicación de activación viene incluido con una configuración de un keep alive que permite controlar fácilmente si el sensor funciona o no; y la configuración de la interfaz es totalmente libre para él, mediante el servidor, administrando los accesos a la misma.
+
+Un último análisis reside en el costo del proyecto. En caso de una implementación propia, los gastos se encuentran en los sensores, que vendidos de forma individual, tienen un valor de €250 cada uno aproximadamente; el servidor, que en este caso es ThingsBoard, cuenta con una "Community Edition" que es gratis, pero que está un poco acotada en opciones, por lo que se optaría por la adquisición del producto "ThingsBoard Cloud", que tiene un costo de USD10 mensuales; y finalmente, habría que sumar el presupuesto de la red LoRa necesario para la comunicación. 
+
+La diferencia de hacerlo de esta manera y de comprarlo es que el sistema ya viene incorporado con la compra de los dispositivos. Sin embargo, la cobertura de esta empresa solo llega a USA, Europa, Asia y Japón, por lo que la mejor opción a considerar es la de la adquisición de los sensores de forma independiente y modelar el sistema con un servidor propio y configurable al gusto y según las necesidades del administrador.
 
 ##  10. Conclusión
 
+Se concluye que el trabajo cumplió de manera acertada los objetivos propuestos, teniendo en cuenta los requerimientos desarrollados, con una implementación en la que, si bien se estaba muy acotado por la falta de equipos para interactuar con una solución real, presenta un prototipo semejante a la solución real requerida del problema, mediante temas abordados en la materia aplicaciones TCP/IP y herramientas extras.
 
+La existencia de sistemas prearmados para la resolución de estos problemas puede significar que este sistema parezca simple, pero la realidad es que, ante la falta o en el caso de una imposibilidad de adquirir estos productos, represente una solución precisa y óptima que es aplicable de manera sencilla, con el adecuado apoyo de las instituciones partícipes y de los ciudadanos, para la búsqueda de una ciudad con menor volumen de tráfico, emisiones de gas, kilómetros viajados y menor tiempo de conducción del vehículo.
+
+Este proyecto no solo se queda en la visualización de libre/ocupado de slots, sino que también a futuro permite increíbles innovaciones con mayor tecnología, como un seguimiento más especializado de los vehículos, contadores inteligentes e incluso sistemas de estacionamiento y control automáticos.
 
 ##  11. Anexos
 
