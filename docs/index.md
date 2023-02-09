@@ -120,7 +120,13 @@ ___
 
 ####   ***5.1.3. Persistencia de datos*** 
 
-El sistema ofrece soporte para datos propios del sistema.
+El sistema ofrece soporte para datos propios del sistema y datos generados por el usuario.
+
+| Código | BD_0001 | Nombre | Base de datos |
+|---|:---:|---|:---:|
+| Descripción | El sistema permitirá visualizar los datos almacenados en el servidor. |  |  |
+| Prioridad |  1 | Rel. | -  |
+| Trazabilidad | - | Ref. | - |
 
 | Código | CFG_SIS_0001 | Nombre | Configuración sistema |
 |---|:---:|---|:---:|
@@ -158,7 +164,13 @@ Esta sección describe los requerimientos del sistema relativos a las funcionali
 
 | Código | BD_LL_0001 | Nombre | Base de datos |
 |---|:---:|---|:---:|
-| Descripción | Se debe contar con archivos que permitan: configuración del sistema, con un formato que permita al adminsitrador modificar de manera simple los datos; configuración de la interfaz gráfica, con el formato que le permita al administrador la amyor facilidad de modificar la interfaz gráfica de las funciones; configuración de los sensores, mediante un formato .xslx para almacenar los datos de sensores y poder conectarse al servidor; mantenimiento del sistema. |  |  |
+| Descripción | Se debe poder visualizar los datos hasta un período de un año. |  |  |
+| Prioridad | 1 | Rel. | BD_0001 |
+| Trazabilidad | - | Ref. | - |
+
+| Código | CFG_LL_0001 | Nombre | Archivos de onfiguración |
+|---|:---:|---|:---:|
+| Descripción | Se debe contar con archivos que permitan: configuración del sistema, con un formato que permita al adminsitrador modificar de manera simple los datos; configuración de la interfaz gráfica, con el formato que le permita al administrador la mayor facilidad de modificar la interfaz gráfica de las funciones; configuración de los sensores, mediante un formato .xslx para almacenar los datos de sensores y poder conectarse al servidor; mantenimiento del sistema. |  |  |
 | Prioridad | 1 | Rel. | CFG_SIS_0001 |
 | Trazabilidad | - | Ref. | - |
 
@@ -315,21 +327,62 @@ Lo que aquí se realiza con ThingsBoard, en realidad se debería aplicar con un 
 
 Una vez que se verifica que todo funciona, se usa Android Studio para la visualización de los paneles de Thingsboard mediante una aplicación. 
 
-<img src="\Imagenes\impl_app.jpg" width="175" height="200">
-
-<img src="\Imagenes\impl_app_2.jpg" width="150" height="250">
-
 Esta consta de un menú de inicio en el que se selecciona el tipo de usuario: agente o conductor. Según sea el usuario que se elija, se mostrarán en pantalla los paneles de Thingsboard correspondientes[[5]](#5).
-
-<img src="\Imagenes\impl_app_inicio.jpg" width="150" height="250">
 
 ##  8. Plan de ensayos
 
-Por último se realizó el testing al sistema desarrollado a lo largo del informe. En esta etapa se buscó evaluar y mejorar la calidad del producto a lo largo del proceso verificando el sistema mientras se ejecuta. A continuación se adjunta el documento de ensayos en el cual se muestran distintos casos de prueba en función a los requerimientos y el diseño del sistema.
+Por último se realizó el testing al sistema desarrollado a lo largo del informe. En esta etapa se buscó evaluar y mejorar la calidad del producto a lo largo del proceso verificando el sistema mientras se ejecuta. A continuación se adjunta el documento de ensayos en el cual se muestran distintos casos de prueba en función a los requerimientos y el diseño del sistema. 
+
+| ENSAYO  || 3/2/2023   ||
+|:---:|:---|:---:|:---|
+| Requerimiento | Ensayo | Resultado | Observaciones |
+| Maqueta funcional | La simulación del sensado representativa en la maqueta debe generar los datos correctamente. | POSITIVO | La simulación es realizada de manera correcta, según el encendido de los LED, que se corresponde al valor genrado por el código simulador de estacionamiento. |
+| Envío de datos al servidor | Los valores generados por la simulación deben enviarse correctamente al servidor. | POSITIVO | En el apartado de Última telemetría, en la sección de dispositivos, se observa que los valores relacionados a "Ocupado" o "Libre" de cad sensor, cambian según el generado por la simulación. |
+| Interfaz gráfica | Los dashboards generados en ThingsBoard deben ajustarse a la información recibida. | POSITIVO | En los mapas de los diferentes paneles el mapa ajusta la información mostrada según la última telemetría recibida. |
+| Acceso a diferente interfaz gráfica según tipo de usuario | Los diferentes paneles erán accesibles solo para aquel usuario al que se le ha dado el permiso o las credenciales correspondientes. | POSITIVO | Los usuarios conductores acceden sin necesidad de loguearse a su panel correspondiente de visualización. Mientras que los agentes poseen un panel al que solo se puede ingresar con credenciales generadas por el administrador. |
+| Visualización de los paneles en la aplicación | Debe ser posible la visualización generada en ThingsBoard desde la aplicación para teléfono móvil. | NEGATIVO | Si bien la posibilidad de elegir entre usuarios es correcta, y es redirigido correctamente hacia la página web, ésta no carga. |
+| Configuración del sistema | El administrador debe contar con la posibilidad de modificar cualquier apartado del sistema. | POSITIVO | El administrdor cuenta con sus credenciales personales que permiten modificar libremente la interfaz gráfica (en ThingsBoard o con archivos .json), manejar información de los sensores (realizable desde el mismo servidor y del código de simulación) y la gestión de credenciales de los usuarios según los paneles creados. |
+| Persistencia de datos | Se deben poder visualizar los datos con un período anterior a un (1) año | POSITIVO | Desde el servidor, es posible modificar esta ventatna de tiempo para ajustarlo a este período y observar los datos necesarios. |
 
 ## 9. Análisis de resultados
 
+A partir del plan de ensayos realizado se observa que la simulación de lo que sería el sistema de estacionamiento inteligente, cumple con lo requerido. La generación de valores aleatorios y del sensado para simular al parking y su visualización es acertada con el uso del código en python y la Raspberry. Los valores son mostrados en un pequeño display y los LED se prenden correspondientemente con estos.
 
+imagen
+
+Estos datos son enviados correctamente al servidor, y esta información es usada para generar los paneles de visualización correspondientes al usuario conductor y a los agentes, por lo que los usuarios tienen acceso a identificar slots vacíos en las distintas ubicaciones en la que se ubiquen los sensores.
+
+<img src="\Imagenes\things_cond.jpg" width="400" height="183">
+
+Para los agentes se piden las credenciales necesarias:
+
+<img src="\Imagenes\things_login.jpg" width="250" height="260">
+
+<img src="\Imagenes\things_agentes.jpg" width="400" height="226">
+
+El primer problema que se encuentra, es en la aplicación. No porque no se pueda hacer, ya que fue creada con éxito, pero, como se explica en las observaciones del ensayo, al intentar cargar la página generada con los paneles de ThingsBoard correspondientes, se redirige correctamente, pero la página no carga.
+
+<img src="\Imagenes\impl_app.jpg" width="250" height="321">
+
+<img src="\Imagenes\impl_app_2.jpg" width="250" height="555">
+
+<img src="\Imagenes\impl_app_inicio.jpg" width="250" height="555">
+
+<img src="\Imagenes\impl_app_load.jpg" width="250" height="555">
+
+La solución que se encontró, temporal, es la de un botón que abra la interfaz desde el navegador, donde sí funciona.
+
+Todo esto que se realizó es totalmente configurable y mantenible por el admnistrador del proyecto, quien tiene acceso al código para ingresar nuevos sensores, administrar las credenciales de los mismos, acomodar los paneles según su gusto o las necesidades que se le exigieran, además del control del acceso al panel de agentes, ya que es este quien genera las credenciales para que pueda ser vista la interfaz.
+
+El sistema, reducido a esta escala parece simple, ya que se trata de solo 6 sensores, cuatro simulados y solo dos de ellos muestran más acertadamente como funcionaría realmente esto mediante un sensor con otra tecnología. Pero brinda un buen acercamiento a lo que es el sistema en sí.
+
+Sin embargo, este análisi es algo totalmente necesarios, ya que la implementación más acorde sería con los elementos nombrados en la sección 7.1. Pero el prototipo para ver su funcionamiento debe ser representado de otra forma, debido a la limitante de la disponibilidad de accesorios de lo que realmente se desea implementar. 
+
+Los sensores se simulan de manera correcta con el código, ya que se envían los mismos valores que estos enviarían, pero el servidor en este caso tuvo que ser "creado de cero", caso contrario a cuando se adquiere un PlacePod, el servidor ya viene preparado con lo necesario para su interfaz, por lo que no estaría la necesidad de crear todo como se tuvo que hacer aquí.
+
+En cuanto a la visulización en una aplicación, no se sabe realmente como sería porque no se cuenta con el servidor para ver las posibilidades de visualización que este brinda. Por lo que se supone que una aplicación es una correcta solución. Al usar Cayenne de forma oficial, seguramente con Cayenne Devices se pueda lograr una visualización similar a la que se logró en este proyecto, por lo que la representación se asemeja a lo esperado.
+
+Por último, en cuanto al administrador del sistema, este poseerá las mismas condiciones que se plantearon aquí. La carga de sensores con ubicación y credenciales es similar, con la diferencia de que en la realidad deberán ser calibrados y activados, pero la carga de credenciales y ubicación, se mantiene. La configuración de la interfaz es totalmente libre para él, mediante el servidor, administrando los accesos a la misma.
 
 ##  10. Conclusión
 
