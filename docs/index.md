@@ -245,13 +245,21 @@ La aplicación Thingsboard es la encargada de cumplir la función de monitoreo, 
 
 ###   **6.3. Nivel 2 (L2)**
 
-#### ***Sistema*** (Falta desarrollo, funcionamient real del sistema) 
+#### ***Sistema*** 
+
+A modo de resumen, en la primera etapa del proyecto se colocarían sensores PlacePod en los distintos slots de estacionamiento, los cuales anviarían información a una nube IoT. Los mismos trabajan con un sistema LoRa, más específicamente, Lora clase A. Esto implica que la comunicación será óptima en cuanto a ahorro de energía, ya que este tipo utiliza el canal de bajada solamente, luego de que el mismo haya transmitido información en el canal de subida, es decir, no estaría todo el tiempo escuchando ni tampoco tendrá sincronía con el servidor.
+
+Esto significa que, por ejemplo, uno de ellos tomaría muestras de la ocupación de cada slot y se lo envía de manera inalámbrica por una frecuencia seleccionada (Red LoraWan) utilizando una modulación de espectro ensanchado lo que implica un bajo consumo de energía hacia un gateway, el cual estará conectado a la red mediante Ethernet o Wi-Fi. También existe la posibilidad de estar conectado a través de una red celular, aunque dadas las condiciones, no debería ser necesario. El gateway es quien se comunica con la nube, que puede tratarse de plataformas como Cayenne, Thingsboard, entre otras, para recibir toda la información generada por los sensores.  
+
+Cada sensor puede enviar sus muestras, pero también puede recibir información de control la misma, proveniente del servidor y no del gateway. 
+
+Una vez que la información está disponible en la nube, será necesario crear o configurar los paneles para la correcta visualización de los datos requeridos, y gestionar el acceso a los mismos para diferenciar, según el tipo de usuario, qué información se envía a cada uno de ellos.
 
 #### ***Aplicación***
 
 <img src="\Imagenes\sis_level2_app.jpg" width="250" height="70">
 
-Se desarrolla mediante Android Studio la aplicación que permitirá brindar la información proveniente de los sensores a diferentes usuarios ya específicados previamente. Se eligió este modelo ya que mediante ThingsBoard y su visualización de paneles, con un simple WebView se puede imprimir en pantalla la información procesada.
+Se desarrolla mediante Android Studio la aplicación que permitirá brindar la información configurada en los paneles proveniente de los sensores a diferentes usuarios, diferenciando las vistas con credenciales, según los tipos ya específicados previamente. Se eligió este modelo ya que mediante ThingsBoard y su visualización de paneles, con un simple WebView se puede imprimir en pantalla la información procesada.
 
 ##  7. Implementación
 
