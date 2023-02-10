@@ -245,7 +245,7 @@ La aplicación Thingsboard es la encargada de cumplir la función de monitoreo, 
 
 ###   **6.3. Nivel 2 (L2)**
 
-#### ***ACA VA COMO FUNCIONARIA TODO EN LA REALIDAD (explicar como se comunica el sensor con el gateway de ahi manda la info)*** 
+#### ***Sistema*** (Falta desarrollo, funcionamient real del sistema) 
 
 #### ***Aplicación***
 
