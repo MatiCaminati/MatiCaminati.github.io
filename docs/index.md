@@ -178,7 +178,8 @@ ___
 
 ##  6. Diseño del Sistema 
 
- Para llevar a cabo el diseño del Software requerido se opta por la Arquitectura basada en componentes con nivel de detalle. En el mismo se descompone el sistema en unidades componentes que deben tener especificadas sus entradas y salidas, prescindiendo de una descripción detallada de su implementación, relacionándolos a través de conectores que especifican y gobiernan la interacción entre los mismos. Estos componentes deben encapsular funcionalidades y comportamientos, y cumplir con ciertas características, como ser reutilizables en diferentes situaciones y aplicaciones, extensibles a partir de componentes existentes  para proporcionar un nuevo comportamiento y no ser específicos del contexto. Así, esta metodología proporciona un mayor nivel de abstracción y divide el problema en subproblemas, cada uno asociado con una unidad componente, facilitando el desarrollo del sistema pedido. Se especifican tres niveles de detalle.
+Para llevar a cabo el diseño del Software requerido se opta por la Arquitectura basada en componentes con nivel de detalle. En el mismo se descompone el sistema en unidades componentes que deben tener especificadas sus entradas y salidas, prescindiendo de una descripción detallada de su implementación, relacionándolos a través de conectores que especifican y gobiernan la interacción entre los mismos. Estos componentes deben encapsular funcionalidades y comportamientos, y cumplir con ciertas características, como ser reutilizables en diferentes situaciones y aplicaciones, extensibles a partir de componentes existentes  para proporcionar un nuevo comportamiento y no ser específicos del contexto. Así, esta metodología proporciona un mayor nivel de abstracción y divide el problema en subproblemas, cada uno asociado con una unidad componente, facilitando el desarrollo del sistema pedido. Se especifican tres niveles de detalle.
+
 - Nivel 0 (L0): Sistema simplificado con un solo objeto o bloque que describe el proyecto. Una entrada y una salida. (Opcional)
 - Nivel 1 (L1): Se expande el bloque del Nivel 0 detallando a gran escala el mismo.
 - Nivel 2 (L2): Se describe a mayor detalle cada bloque del nivel anterior. Exponiendo de forma resumida las tecnologías que se van a utilizar para lograr la integración.
@@ -270,6 +271,8 @@ Lo primero que se pensó es cuál iba a ser el servidor que iba a recibir y proc
 Los datos que se envían al servidor se trata de datos simulados mediante el uso de una computadora de placa única Raspberry Pi, que ejecuta un script en lenguaje python y además, toma valores mediante un sensado en una maqueta representativa. También se encarga de enviar los datos al servidor mediante conexiones mediante MQTT.
 
 Una vez hecho esto, se creó una aplicación con el software Android Studio, que permite la visualización desde una aplicación móvil de los paneles creados en Thingsboard.
+
+<img src="\Imagenes\esquema.jpg" width="400" height="145">
 
 ###   **7.1. Implementación real teórica**
 
